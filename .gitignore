@@ -257,4 +257,3 @@ paket-files/
 .vs/
 .idea/.idea.Prag/.idea/workspace.xml
 *.xml
-*.env
