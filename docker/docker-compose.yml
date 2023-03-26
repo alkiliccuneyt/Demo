@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  set-demo:
+    image: ${DOCKER_REGISTRY-}set-demo
+    build:
+      context: ../
+      dockerfile: Demo/Dockerfile
+    restart: unless-stopped

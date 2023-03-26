@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  set-demo:
+    container_name: set-demo
+    labels:
+      environment: ${ENVIRONMENT}
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ENVIRONMENT}
+      - ConnectionStrings:DefaultConnection=Server=${DBSERVER};Database=${DATABASE};User Id=${USERID};Password=${PASSWORD};MultipleActiveResultSets=True;
+      - ConnectionStrings:ApplicationName=${APPLICATIONNAME}
+      - Serilog:MinimumLevel:Default=${LOGDEFAULT}
+      - Serilog:MinimumLevel:Override:Microsoft=${LOGMICROSOFT}
+      - Serilog:MinimumLevel:Override:System=${LOGSYSTEM}
+      - Serilog:Properties:ServerName=${SERVERNAME}
+      - Serilog:Properties:ApplicationName=${APPLICATIONNAME}
+      - "TZ=Europe/Istanbul"
+    ports:
+      - "3060:80"
+      - "3061:443"
